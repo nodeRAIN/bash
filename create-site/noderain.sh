@@ -13,8 +13,8 @@ function replaceInFile() {
                 exit 1;
         fi;
         if [ -e ${1} ]; then
-                sed -e "s/${2}/${3}/g" ${1} > /tmp/crea_virtualhost_tmp
-                mv /tmp/crea_virtualhost_tmp ${1}
+		sed -e "s#${2}#${3}#g" ${1} > /tmp/crea_virtualhost_tmp
+		mv /tmp/crea_virtualhost_tmp ${1}
         else
                 echo -e "Errore in replaceInFile: file non trovato. Impossibile aprire il file ${1}.";
                 exit 1;
@@ -25,7 +25,7 @@ function replaceInFile() {
 echo -e 'Host name: '
 read host
 
-#Check port availablde port
+#TODO: Check port availablde port
 echo -e 'Node port: '
 read nodeport
 
@@ -36,9 +36,9 @@ echo 'Prepare bin...'
 binDir="bin/${host}"
 prodDir="${nodeDir}${host}"
 mkdir $binDir
-tmpSiteAvailableDir="${binDir}/sites-available"
-tmpRepoDeployDir="${binDir}/repo-deploy"
-tmpServerApp="${binDir}/node-server"
+tmpSiteAvailableDir="${binDir}/sites"
+tmpRepoDeployDir="${binDir}/repo"
+tmpServerApp="${binDir}/node"
 tmpSupervisor="${binDir}/supervisor"
 
 echo 'Nginx host config creation...'
@@ -64,4 +64,4 @@ echo 'Move bin file in production...'
 
 echo 'Restart NGINX e SUPERVISOR'
 
-echo 'Done! http://${host}'
+echo 'Done! http://'${host}
