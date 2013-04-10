@@ -1,7 +1,4 @@
 #!/bin/bash
-repoDir="/home/repo-deployer/"
-nodeDir="/home/node-server/"
-
 #
 # Funzione di sostituzione di una stringa in un file
 # Parametri: nomefile, oldString, newString
@@ -21,7 +18,6 @@ function replaceInFile() {
         fi;
 }
 
-
 echo -e 'Host name: '
 read host
 
@@ -33,8 +29,12 @@ echo -e 'Nginx port: '
 read nginxport
 
 echo 'Prepare bin...'
+repoDir="/home/repo-deployer/${host}"
+nodeDir="/home/node-server/${host}"
+supervisorDir="/home/supervisor-conf/"
+nginxDir="/etc/nginx/sites-available/"
+
 binDir="bin/${host}"
-prodDir="${nodeDir}${host}"
 mkdir $binDir
 tmpSiteAvailableDir="${binDir}/sites"
 tmpRepoDeployDir="${binDir}/repo"
@@ -52,15 +52,27 @@ mkdir ${tmpRepoDeployDir}
 git init --bare ./${tmpRepoDeployDir}
 cp template/post-recive.template ${tmpRepoDeployDir}/hooks/post-receive
 chmod 777 ${tmpRepoDeployDir}/hooks/post-receive
-replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${prodDir}"
+replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${nodeDir}"
+replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "HOST" "${host}"
 
 echo 'Create node...'
 mkdir ${tmpServerApp}
 cp template/server-nodejs.template ${tmpServerApp}/server.js
 
 echo 'Config supervisor...'
+mkdir ${tmpSupervisor}
+cp template/supervisor.template ${tmpSupervisor}/${host}
+replaceInFile "${tmpSupervisor}/${host}" "PATHNODE" "${nodeDir}"
+replaceInFile "${tmpSupervisor}/${host}" "HOST" "${host}"
+replaceInFile "${tmpSupervisor}/${host}" "PORTNODE" "${nodeport}"
 
 echo 'Move bin file in production...'
+mkdir ${repoDir}
+mv ${tmpRepoDeployDir} ${repoDir}/${host}
+mkdir ${nodeDir}
+mv ${tmpServerApp}/server.js ${nodeDir}/server.js
+mv ${tmpSupervisor} ${supervisorDir}${host}.ini
+mv ${tmpSiteAvailableDir}/${host} ${nginxDir}${host}
 
 echo 'Restart NGINX e SUPERVISOR'
 

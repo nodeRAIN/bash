@@ -2,3 +2,4 @@
 GIT_WORK_TREE=PATHNODE
 export GIT_WORK_TREE
 git checkout -f
+sudo supervisorctl restart HOST
