@@ -4,7 +4,7 @@ upstream HOST {
 
 # the nginx server instance
 server {
-    listen 0.0.0.0:PORTNGINX;
+    listen 0.0.0.0:80;
     server_name HOST;
     access_log /var/log/nginx/HOST.log;
 
