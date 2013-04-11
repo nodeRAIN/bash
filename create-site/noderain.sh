@@ -63,9 +63,9 @@ cp template/server-nodejs.template ${tmpServerApp}/server.js
 echo 'Config supervisor...'
 mkdir ${tmpSupervisor}
 cp template/supervisor.template ${tmpSupervisor}/${host}.ini
-replaceInFile "${tmpSupervisor}/${host}" "PATHNODE" "${nodeDir}"
-replaceInFile "${tmpSupervisor}/${host}" "HOST" "${host}"
-replaceInFile "${tmpSupervisor}/${host}" "PORTNODE" "${nodeport}"
+replaceInFile "${tmpSupervisor}/${host}.ini" "PATHNODE" "${nodeDir}"
+replaceInFile "${tmpSupervisor}/${host}.ini" "HOST" "${host}"
+replaceInFile "${tmpSupervisor}/${host}.ini" "PORTNODE" "${nodeport}"
 
 echo 'Move bin file in production...'
 mkdir ${repoDir}

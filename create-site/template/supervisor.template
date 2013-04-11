@@ -1,5 +1,4 @@
 [program:HOST]
 command=node server.js
 directory=PATHNODE
-environment=NODE_ENV=production
-NODE_PORT=PORTNODE
+environment=ENV_NODE=production,ENV_PORT=PORTNODE

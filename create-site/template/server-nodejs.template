@@ -2,5 +2,4 @@ var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('nodeRAIN is ready to play!\n');
-}).listen(ENV_PORT, "127.0.0.1");
-console.log('Server running at http://127.0.0.1:/'+ENV_PORT);
+}).listen(process.env.ENV_PORT, "127.0.0.1");
