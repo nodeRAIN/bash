@@ -33,8 +33,9 @@ repoDir="/home/repo-deployer/${host}"
 nodeDir="/home/node-server/${host}"
 supervisorDir="/home/supervisor-conf/"
 nginxDir="/etc/nginx/sites-available/"
-
+nginxDirEnab="/etc/nginx/sites-enabled/"
 binDir="bin/${host}"
+
 mkdir $binDir
 tmpSiteAvailableDir="${binDir}/sites"
 tmpRepoDeployDir="${binDir}/repo"
@@ -61,7 +62,7 @@ cp template/server-nodejs.template ${tmpServerApp}/server.js
 
 echo 'Config supervisor...'
 mkdir ${tmpSupervisor}
-cp template/supervisor.template ${tmpSupervisor}/${host}
+cp template/supervisor.template ${tmpSupervisor}/${host}.ini
 replaceInFile "${tmpSupervisor}/${host}" "PATHNODE" "${nodeDir}"
 replaceInFile "${tmpSupervisor}/${host}" "HOST" "${host}"
 replaceInFile "${tmpSupervisor}/${host}" "PORTNODE" "${nodeport}"
@@ -71,9 +72,14 @@ mkdir ${repoDir}
 mv ${tmpRepoDeployDir} ${repoDir}/${host}
 mkdir ${nodeDir}
 mv ${tmpServerApp}/server.js ${nodeDir}/server.js
-mv ${tmpSupervisor} ${supervisorDir}${host}.ini
+mv ${tmpSupervisor}/${host}.ini ${supervisorDir}${host}.ini
 mv ${tmpSiteAvailableDir}/${host} ${nginxDir}${host}
 
 echo 'Restart NGINX e SUPERVISOR'
+supervisorctl reload
+ln -s ${nginxDir}${host} ${nginxDirEnab}${host}
+sudo /etc/init.d/nginx restart
+/etc/init.d/supervisord restart
 
+rm -r ${binDir}
 echo 'Done! http://'${host}
