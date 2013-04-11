@@ -1,33 +1,39 @@
 #
-# Remove App an clear All file 
+# Remove App and clear All file 
 #
 function destroyApp () {
-  echo 'This operation remove all file and is unrecoverable.\nContinue: (y/N)'
-  read continueOperation
+  echo "List App..."
+  ls ${nginxDirEnabled}
+
+  echo "App name to destroy:"
+  read appName
   
-  if [${continueOperation} != 'y' -o ${continueOperation} != 'Y']; then
-    exit 1;  
+  echo -e "This operation remove all file and is unrecoverable.\nContinue (y/N):"
+  read continueOperation
+
+  if [ "${continueOperation}" == "y" -o "${continueOperation}" == "Y" ]; then
+    
+    if [ "${appName}" != "" -a "${appName}" != "/" -a "${appName}" != "/home" ]; then 
+      repoAppDir="${repoDir}/${appName}"
+      nodeAppDir="${nodeDir}/${appName}"
+      supervisorAppFile="${supervisorDir}/${appName}.ini"
+      nginxAppFileAvailable="${nginxDirAvailable}/${appName}"
+      nginxAppFileEnabled="${nginxDirEnabled}/${appName}"
+
+      echo 'Remove directory and file...'
+      rm -rf ${repoAppDir} 
+      rm -rf ${nodeAppDir}
+      rm -f ${supervisorAppFile}
+      rm -f ${nginxAppFileAvailable}
+      rm -f ${nginxAppFileEnabled}
+
+      echo 'Restart NGINX e SUPERVISOR'
+      supervisorctl reload
+      sudo /etc/init.d/nginx restart
+      /etc/init.d/supervisord restart  
+    else
+      echo "Invalid App"
+    fi;
   fi;
-
-  echo -e 'Host name to remove: '
-  read host
-
-  repoAppDir="${repoDir}/${host}"
-  nodeAppDir="${nodeDir}/${host}"
-  supervisorAppFile="${supervisorDir}/${host}.ini"
-  nginxAppFileAvailable="${nginxDirAvailable}/${host}"
-  nginxAppFileEnabled="${nginxDirEnabled}/${host}"
-
-  echo 'Remove directory and file...'
-  rm -rf ${repoAppDir} 
-  rm -rf ${nodeAppDir}
-  rm -f ${supervisorAppFileDir}
-  rm -f ${nginxAppFileAvailable}
-  rm -f ${nginxAppFileEnabled}
-
-  echo 'Restart NGINX e SUPERVISOR'
-  supervisorctl reload
-  sudo /etc/init.d/nginx restart
-  /etc/init.d/supervisord restart
 }
 

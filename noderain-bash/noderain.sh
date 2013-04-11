@@ -1,4 +1,5 @@
 #!/bin/bash
+. lib/config-server.sh
 
 case "${1}" in
   create) source lib/noderain-create.sh

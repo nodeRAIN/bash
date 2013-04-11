@@ -1,5 +1,5 @@
-source "lib/utility/replaceInFile.sh"
-source "lib/utility/needRootUser.sh"
+. "lib/utility/replaceInFile.sh"
+. "lib/utility/needRootUser.sh"
 
 #
 # Function for create a nodejs app
@@ -8,7 +8,7 @@ function createApp () {
   
   needRootUser
 
-  echo -e 'Host name: '
+  echo -e 'App name:\n (app name is same of host name ex: noderain.it'
   read host
 
   #TODO: Check port availablde port
@@ -27,12 +27,12 @@ function createApp () {
   tmpSiteAvailableFile="${binDir}/sites"
   tmpRepoDeployDir="${binDir}/repo"
   tmpServerFile="${binDir}/node"
-  tmpSupervisor="${binDir}/supervisor"
+  tmpSupervisorFile="${binDir}/supervisor"
 
   echo 'Nginx host config creation...'
-  cp template/node.template ${tmpSiteAvailableDir}
-  replaceInFile "${tmpSiteAvailableDir}" "HOST" "${host}"
-  replaceInFile "${tmpSiteAvailableDir}" "PORTNODE" "${nodeport}"
+  cp template/node.template ${tmpSiteAvailableFile}
+  replaceInFile "${tmpSiteAvailableFile}" "HOST" "${host}"
+  replaceInFile "${tmpSiteAvailableFile}" "PORTNODE" "${nodeport}"
 
   mkdir ${tmpRepoDeployDir}
   git init --bare ./${tmpRepoDeployDir}
@@ -45,18 +45,18 @@ function createApp () {
   cp template/server-nodejs.template ${tmpServerFile}
 
   echo 'Config supervisor...'
-  cp template/supervisor.template ${tmpSupervisor}
-  replaceInFile "${tmpSupervisor}" "PATHNODE" "${nodeDir}"
-  replaceInFile "${tmpSupervisor}" "HOST" "${host}"
-  replaceInFile "${tmpSupervisor}" "PORTNODE" "${nodeport}"
+  cp template/supervisor.template ${tmpSupervisorFile}
+  replaceInFile "${tmpSupervisorFile}" "PATHNODE" "${nodeAppDir}"
+  replaceInFile "${tmpSupervisorFile}" "HOST" "${host}"
+  replaceInFile "${tmpSupervisorFile}" "PORTNODE" "${nodeport}"
 
   echo 'Move bin file in production...'
   mkdir ${repoAppDir}
   mv ${tmpRepoDeployDir} ${repoAppDir}
   mkdir ${nodeAppDir}
   mv ${tmpServerFile} ${nodeAppDir}/server.js
-  mv ${tmpSupervisor}/${host}.ini ${supervisorAppFile}
-  mv ${tmpSiteAvailableDir}/${host} ${nginxFileAvailable}
+  mv ${tmpSupervisorFile} ${supervisorAppFile}
+  mv ${tmpSiteAvailableFile} ${nginxFileAvailable}
 
   echo 'Restart NGINX e SUPERVISOR'
   supervisorctl reload

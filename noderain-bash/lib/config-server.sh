@@ -9,4 +9,4 @@ supervisorDir="/home/supervisor-conf/"
 
 # path site file conf for nginx
 nginxDirAvailable="/etc/nginx/sites-available/"
-nginxDirEnababled="/etc/nginx/sites-enabled/"
+nginxDirEnabled="/etc/nginx/sites-enabled/"
