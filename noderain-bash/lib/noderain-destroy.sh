@@ -1,7 +1,11 @@
+. "lib/utility/needRootUser.sh"
+
 #
 # Remove App and clear All file 
 #
 function destroyApp () {
+  needRootUser
+
   echo "List App..."
   ls ${nginxDirEnabled}
 
