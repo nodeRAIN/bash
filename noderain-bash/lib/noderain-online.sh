@@ -3,18 +3,18 @@
 #
 # Remove App and clear All file
 #
-function offlineApp () {
+function onlineApp () {
   needRootUser
   
-  echo "List App..."
-  ls ${nginxDirEnabled}
+  echo "List App Offline..."
+  #TODO: ls ${nginxDirEnabled}
 
   echo "App name to make offline:"
   read appName
   if [ "${appName}" != "" -a "${appName}" != "/" -a "${appName}" != "/home" ]; then
-    echo 'Make offline App...'
-    rm ${nginxDirEnabled}/${appName}
-    mv ${supervisorDir}/${appName}.ini ${supervisorDir}/${appName}.ini.off
+    echo 'Make online App...'
+    ln -s ${nginxDirAvailable}/${appName} ${nginxDirEnabled}/${appName}
+    mv ${supervisorDir}/${appName}.ini.off ${supervisorDir}/${appName}.ini
 
     echo 'Restart NGINX e SUPERVISOR'
     supervisorctl reload
