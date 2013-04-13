@@ -1,0 +1,15 @@
+server {
+  listen 80;
+  server_name HOST;
+  root PATHNODE;
+
+  access_log PATHNODE/var/log/access.log;
+  error_log PATHNODE/var/log/error.log;
+
+  location / {
+    index index.html;
+  }
+  location /foo {
+    try_files $uri @foo;
+  }
+}
