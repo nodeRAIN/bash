@@ -5,6 +5,9 @@ case "${1}" in
   create) source lib/noderain-create.sh
           createApp
           ;;
+  static) source lib/noderain-static.sh
+          createStatic
+          ;; 
   destroy) source lib/noderain-destroy.sh
            destroyApp
            ;;
