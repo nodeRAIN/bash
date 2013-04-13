@@ -19,7 +19,7 @@ function createApp () {
   repoAppDir="${repoDir}/${host}"
   nodeAppDir="${nodeDir}/${host}"
   supervisorAppFile="${supervisorDir}/${host}.ini"
-  nginxFileAvailable=${nginxDirAvailable}/{$host}
+  nginxFileAvailable=${nginxDirAvailable}/${host}
   nginxFileEnabled=${nginxDirEnabled}/${host}
   
   binDir="bin/${host}"
@@ -38,7 +38,7 @@ function createApp () {
   git init --bare ./${tmpRepoDeployDir}
   cp template/post-recive.template ${tmpRepoDeployDir}/hooks/post-receive
   chmod 777 ${tmpRepoDeployDir}/hooks/post-receive
-  replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${nodeDir}"
+  replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${nodeAppDir}"
   replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "HOST" "${host}"
 
   echo 'Create node...'
@@ -52,12 +52,12 @@ function createApp () {
 
   echo 'Move bin file in production...'
   mkdir ${repoAppDir}
-  mv ${tmpRepoDeployDir} ${repoAppDir}
+  mv ${tmpRepoDeployDir}/* ${repoAppDir}
   mkdir ${nodeAppDir}
   mv ${tmpServerFile} ${nodeAppDir}/server.js
   mv ${tmpSupervisorFile} ${supervisorAppFile}
   mv ${tmpSiteAvailableFile} ${nginxFileAvailable}
-
+  chmod 775 ${repoAppDir}/hooks/post-receive
   echo 'Restart NGINX e SUPERVISOR'
   supervisorctl reload
   ln -s ${nginxFileAvailable} ${nginxFileEnabled}
