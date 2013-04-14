@@ -43,8 +43,8 @@ function createStatic () {
   mv ${tmpRepoDeployDir}/* ${repoAppDir}
   mkdir ${nodeAppDir}
   mv ${tmpServerFile} ${nodeAppDir}/index.html
-  mkdir ${nodeAppDor}/var
-  mkdir ${nodeAppDor}/var/log
+  mkdir ${nodeAppDir}/var
+  mkdir ${nodeAppDir}/var/log
   mv ${tmpSiteAvailableFile} ${nginxFileAvailable}
   chmod 775 ${repoAppDir}/hooks/post-receive
   
