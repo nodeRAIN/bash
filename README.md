@@ -1,6 +1,6 @@
 # nodeRAIN
 
-## Create a server has become simple!
+## Create a nodeJS server has become simple!
 
 * NGINX as http proxy
 * Nodejs as http server
