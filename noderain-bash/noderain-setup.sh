@@ -25,7 +25,7 @@ sudo apt-get install -y rcconf
 sudo apt-get install -y build-essential
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y git-core
-echo '[Utility tool OK]'
+echo '[Utility tool Done!]'
 
 echo '[Install nodejs latest version]'
 sudo mkdir /home/tmp
@@ -36,18 +36,18 @@ cd node-v0.10.3
 ./configure --prefix=/usr
 make
 sudo make install
-echo '[Nodejs OK]'
+echo '[Nodejs Done!]'
 
 echo '[Install NPM]'
 cd /home/tmp
 git clone http://github.com/isaacs/npm.git
 cd npm
 sudo make install
-echo '[NPM OK]'
+echo '[NPM Done!]'
 
 echo '[Install NGINX]'
 sudo apt-get install nginx
-echo '[NGINX OK]'
+echo '[NGINX Done!]'
 
 echo '[Install supervisor]'
 sudo apt-get install python-setuptools
@@ -60,26 +60,22 @@ sudo echo_supervisord_conf > supervisord.conf
 sudo mv supervisord.conf /etc/supervisord.conf
 
 #TODO: COPY SUPERVISORD CONF
-echo '[superviso OK]'
+echo '[superviso Done!]'
 
 echo '[Create directory]'
 mkdir /home/noderain-server
 mkdir /home/noderain-repo
-echo '[Directory OK]'
+echo '[Directory Done!]'
 
 rm -rf /home/tmp/*
 
-echo '[Install GruntJs]'
-npm install -g grunt-cli
-echo '[GruntJs OK]'
+#echo '[Install nodeRAIN bash]'
+#echo '[nodeRAIN bash Done!]'
 
-#echo '[Install Node Rain GruntJs]'
-
-#echo '[Node Rain GruntJs OK]'
 
 #echo '[Create starter project]'
 
-#echo '[Starter project OK]'
+#echo '[Starter project Done!]'
 
 #echo '[Your Nodejs server is ready to go!]'
 
