@@ -27,7 +27,7 @@ sudo apt-get install -y libssl-dev
 sudo apt-get install -y git-core
 echo '[Utility tool Done!]'
 
-echo '[Install nodejs latest version]'
+echo '[Install nodejs latest version v0.10.3]'
 sudo mkdir /home/tmp
 cd /home/tmp
 wget http://nodejs.org/dist/v0.10.3/node-v0.10.3.tar.gz
@@ -62,6 +62,9 @@ sudo mv supervisord.conf /etc/supervisord.conf
 #TODO: COPY SUPERVISORD CONF
 echo '[superviso Done!]'
 
+#TODO: Install MongoDB?
+
+#TODO: get this param from config
 echo '[Create directory]'
 mkdir /home/noderain-server
 mkdir /home/noderain-repo
@@ -69,9 +72,9 @@ echo '[Directory Done!]'
 
 rm -rf /home/tmp/*
 
+#TODO Install BASH noreRAIN
 #echo '[Install nodeRAIN bash]'
 #echo '[nodeRAIN bash Done!]'
-
 
 #echo '[Create starter project]'
 
