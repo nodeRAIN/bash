@@ -62,6 +62,8 @@ sudo mv supervisord.conf /etc/supervisord.conf
 #TODO: COPY SUPERVISORD CONF
 echo '[superviso Done!]'
 
+#TODO: Install node version manager!
+
 #TODO: Install MongoDB?
 
 #TODO: get this param from config
