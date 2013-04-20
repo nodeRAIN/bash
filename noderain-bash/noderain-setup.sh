@@ -70,6 +70,7 @@ echo '[superviso Done!]'
 echo '[Create directory]'
 mkdir /home/noderain-server
 mkdir /home/noderain-repo
+mkdir /home/supervisor-conf
 echo '[Directory Done!]'
 
 rm -rf /home/tmp/*
