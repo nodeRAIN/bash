@@ -27,7 +27,7 @@ sudo apt-get install -y libssl-dev
 sudo apt-get install -y git-core
 echo '[Utility tool Done!]'
 
-echo '[Install nodejs latest version v0.10.3]'
+echo '[Install nodejs v0.10.3]'
 sudo mkdir /home/tmp
 cd /home/tmp
 wget http://nodejs.org/dist/v0.10.3/node-v0.10.3.tar.gz
