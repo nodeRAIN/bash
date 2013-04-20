@@ -7,7 +7,7 @@
 * Supervisor as nodejs proc runner
 * Git for deploy
 * and finally bash command to easy manage server!
-
+(on Ubuntu 12.10 X64 Server)
 
 (thanks to http://cuppster.com/2011/05/12/diy-node-js-server-on-amazon-ec2/ who inspire me)
 
