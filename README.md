@@ -27,6 +27,8 @@ To setup the server
 
   `su root`
 
-3. lunch the script and follow the instructions
+3. launch the script and follow the instructions
 
   `./noderain-setup.sh`
+
+Taht script work on Ubuntu 12.10 X64 Server
