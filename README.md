@@ -27,6 +27,6 @@ To setup the server
 
   `su root`
 
-3. lunch the script and follow the unstructions
+3. lunch the script and follow the instructions
 
   `./noderain-setup.sh`
