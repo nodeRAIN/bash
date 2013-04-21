@@ -14,3 +14,19 @@
 --NOTE: the script not complete need more work!
 
 (more info are coming on http://noderain.it)
+
+## Getting Started
+
+To setup the server
+
+1. clone the repository
+
+  `git clone https://github.com/nodeRAIN/bash.git`
+
+2. make login as root
+
+  `su root`
+
+3. lunch the script and follow the unstructions
+
+  `./noderain-setup.sh`
