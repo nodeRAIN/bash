@@ -23,7 +23,7 @@ To setup the server
 
   `git clone https://github.com/nodeRAIN/bash.git`
 
-2. make login as root
+2. login as root
 
   `su root`
 
