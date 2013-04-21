@@ -31,4 +31,4 @@ To setup the server
 
   `./noderain-setup.sh`
 
-Taht script work on Ubuntu 12.10 X64 Server
+Script work on Ubuntu 12.10 X64 Server
