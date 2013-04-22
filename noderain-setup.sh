@@ -1,13 +1,17 @@
 #!/bin/bash
 clear
-echo '[Wellcome to Node Rain server!]'
-echo '[Now install prerequisite for your server!]'
+echo '[Wellcome to nodeRAIN server!]'
 
-#Create nodejs user and his home directory 
+#Create nodeRAIN user and his home directory 
 #sudo useradd -d /home/noderain -g adm -m -s shell -u userid accountname
+#echo '[Insert nodeRAIN administrator password:]'
 #sudo passwd noderain
 
-#Set permission per nodejs user as sudoer
+#TODO: Create admin user who access to git repository
+
+#TODO: CHECK FOR SERVER SERCURITY
+
+#Set permission for nodeRAIN user as sudoer
 #sudo usermod -a -G sudo noderain
 
 #Login with noderain user
@@ -59,14 +63,14 @@ sudo rcconf
 sudo echo_supervisord_conf > supervisord.conf
 sudo mv supervisord.conf /etc/supervisord.conf
 
-#TODO: COPY SUPERVISORD CONF
+#TODO: COPY DEAFULT SUPERVISORD CONF
 echo '[superviso Done!]'
 
 #TODO: Install node version manager!
 
-#TODO: Install MongoDB?
+#TODO: Install e configure MongoDB as database if needed
 
-#TODO: get this param from config
+#TODO: get taht param from a config file
 echo '[Create directory]'
 mkdir /home/noderain-server
 mkdir /home/noderain-repo
@@ -79,11 +83,10 @@ rm -rf /home/tmp/*
 #echo '[Install nodeRAIN bash]'
 #echo '[nodeRAIN bash Done!]'
 
-#echo '[Create starter project]'
+#echo '[Create WebAdmin nodeRAIN]'
 
-#echo '[Starter project Done!]'
+#echo '[WebAdmin nodeRAIN Done!]'
 
 #echo '[Your Nodejs server is ready to go!]'
 
 exit
-
