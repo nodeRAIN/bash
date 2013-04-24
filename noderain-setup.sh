@@ -72,23 +72,32 @@ sudo rcconf
 sleep 1
 echo '[###### Done ######]'
 
-#TODO: GET FROM CONFIG or USERINPUT
 echo '[###### Create directory ######]'
 sleep 1
-mkdir /home/noderain-server
-mkdir /home/noderain-repo
-mkdir /home/supervisor-conf
+echo -e 'Node application path [/home/noderain-server]: '
+read noderainserver-path
+echo -e 'Repository path [/home/noderain-repo]: '
+read noderainrepo-path
+echo -e 'Supervisor conf path [/home/noderain-supervisor]: '
+read noderainsupervisor-path
+
+mkdir $noderainserver-path
+mkdir $noderainrepo-path
+mkdir $noderainsupervisor-path
 echo '[###### Done ######]'
 sleep 1
 
 echo '[###### Install nodeRAIN bash######]'
 sleep 1
 sudo git clone https://github.com/nodeRAIN/bash.git ./bashrain
+replaceInFile "bashrain/lib/config-server.sh" "PATHNODESERVER" "${noderainserver-path}"
+replaceInFile "bashrain/lib/config-server.sh" "PATHNODEREPO" "${noderainrepo-path}"
+replaceInFile "bashrain/lib/config-server.sh" "PATHNODESUPERVISOR" "${noderainsupervisor-path}"
 sudo mv /bashrain/noderain-bash /bin/noderain-bash
 sudo chmod +x /bin/noderaini-bash/noderain.sh
 sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
 sudo mv bashrain/template/supervisord.conf.template /etc/supervisord.conf
-replaceInFile "/etc/supervisord.conf" "PATHINISUPERVISOR" "/home/supervisor-conf"
+replaceInFile "/etc/supervisord.conf" "PATHINISUPERVISOR" "${noderainsupervisor-path}"
 echo '[###### Done ######]'
 sleep 1
 
