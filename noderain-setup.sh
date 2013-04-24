@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
-echo '[Wellcome to nodeRAIN server!]'
+echo '[Wellcome to nodeRAIN server]'
+echo '(setup can take more 5 minutes)'
 
 #Create nodeRAIN user and his home directory 
 #sudo useradd -d /home/noderain -g adm -m noderain-adm
