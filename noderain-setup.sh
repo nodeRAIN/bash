@@ -50,8 +50,8 @@ sleep 1
 echo '[###### Install NPM ######]'
 sleep 1
 cd /home/tmp
-git clone http://github.com/isaacs/npm.git
-cd npm
+sudo git clone http://github.com/isaacs/npm.git
+sudo cd npm
 sudo make install
 echo '[###### Done ######]'
 sleep 1
@@ -65,22 +65,14 @@ echo '[###### Install supervisor ######]'
 sleep 1
 sudo apt-get -y install python-setuptools
 sudo easy_install supervisor
-curl https://raw.github.com/gist/176149/88d0d68c4af22a7474ad1d011659ea2d27e35b8d/supervisord.sh > supervisord
-chmod +x supervisord
+sudo curl https://raw.github.com/gist/176149/88d0d68c4af22a7474ad1d011659ea2d27e35b8d/supervisord.sh > supervisord
+sudo chmod +x supervisord
 sudo mv supervisord /etc/init.d/supervisord
 sudo rcconf
-sudo echo_supervisord_conf > supervisord.conf
-sudo mv supervisord.conf /etc/supervisord.conf
 sleep 1
-
-#TODO: COPY DEAFULT SUPERVISORD CONF
 echo '[###### Done ######]'
 
-#TODO: Install node version manager!
-
-#TODO: Install e configure MongoDB as database if needed
-
-#TODO: get taht param from a config file
+#TODO: GET FROM CONFIG or USERINPUT
 echo '[###### Create directory ######]'
 sleep 1
 mkdir /home/noderain-server
@@ -89,18 +81,31 @@ mkdir /home/supervisor-conf
 echo '[###### Done ######]'
 sleep 1
 
-rm -rf /home/tmp/*
+echo '[###### Install nodeRAIN bash######]'
+sleep 1
+sudo git clone https://github.com/nodeRAIN/bash.git ./bashrain
+sudo mv /bashrain/noderain-bash /bin/noderain-bash
+sudo chmod +x /bin/noderaini-bash/noderain.sh
+sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
+sudo mv bashrain/template/supervisord.conf.template /etc/supervisord.conf
+replaceInFile "/etc/supervisord.conf" "PATHINISUPERVISOR" "/home/supervisor-conf"
+echo '[###### Done ######]'
+sleep 1
 
-#TODO Install BASH noreRAIN
-#echo '[Install nodeRAIN bash]'
-#echo '[nodeRAIN bash Done!]'
+#TODO: Install node version manager!
 
+#TODO: Install e configure MongoDB as database if needed
+
+#TODO: WEBADMIN noderain
 #echo '[Create WebAdmin nodeRAIN]'
 
 #echo '[WebAdmin nodeRAIN Done!]'
 
-#echo '[Your Nodejs server is ready to go!]'
+
+rm -rf /home/tmp/*
 
 cd /home
+
+echo 'nodeRAIN is ready to go...have a fun!'
 
 exit

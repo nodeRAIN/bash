@@ -49,4 +49,4 @@ serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 ;history_file=~/.sc_history  ; use readline history if available
 
 [include]
-files=PATHSUPERVISOR*.ini
+files=PATHINISUPERVISOR*.ini
