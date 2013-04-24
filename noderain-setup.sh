@@ -35,7 +35,7 @@ sudo apt-get install -y git-core
 echo '[###### Done ######]'
 sleep 1
 
-echo '[###### Install nodejs v0.10.3 ######]'
+echo '[###### Install nodejs v0.10.4 ######]'
 sleep 1
 sudo mkdir /home/tmp
 cd /home/tmp
@@ -76,10 +76,19 @@ echo '[###### Create directory ######]'
 sleep 1
 echo -e 'Node application path [/home/noderain-server]: '
 read noderainserverpath
+if [ "${noderainserverpath}" == "" ]; then
+  noderainserverpath="/home/noderain-server"
+fi;
 echo -e 'Repository path [/home/noderain-repo]: '
 read noderainrepopath
+if [ "${noderainrepopath}" == "" ]; then
+  noderainrepopath="/home/noderain-repo"
+fi;
 echo -e 'Supervisor conf path [/home/noderain-supervisor]: '
 read noderainsupervisorpath
+if [ "${noderainsupervisorpath}" == "" ]; then
+  noderainsupervisorpath="/home/noderain-supervisor"
+fi;
 
 mkdir $noderainserverpath
 mkdir $noderainrepopath
@@ -87,19 +96,18 @@ mkdir $noderainsupervisorpath
 echo '[###### Done ######]'
 sleep 1
 
-echo '[###### Install nodeRAIN bash######]'
+echo '[###### Install nodeRAIN bash ######]'
 sleep 1
-mkdir bashrain
-sudo git clone https://github.com/nodeRAIN/bash.git ./bashrain
-. bashrain/lib/utility/replaceInFile.sh
-replaceInFile "bashrain/lib/config-server.sh" "PATHNODESERVER" "${noderainserverpath}"
-replaceInFile "bashrain/lib/config-server.sh" "PATHNODEREPO" "${noderainrepopath}"
-replaceInFile "bashrain/lib/config-server.sh" "PATHNODESUPERVISOR" "${noderainsupervisorpath}"
-sudo mv /bashrain/noderain-bash /bin/noderain-bash
-sudo chmod 775 /bin/noderaini-bash/noderain.sh
+sudo git clone https://github.com/nodeRAIN/bash.git ./bashrain/
+. bashrain/noderain-bash/lib/utility/replaceInFile.sh
+replaceInFile "bashrain/noderain-bash/lib/config-server.sh" "PATHNODESERVER" "${noderainserverpath}"
+replaceInFile "bashrain/noderain-bash/lib/config-server.sh" "PATHNODEREPO" "${noderainrepopath}"
+replaceInFile "bashrain/noderain-bash/lib/config-server.sh" "PATHNODESUPERVISOR" "${noderainsupervisorpath}"
+replaceInFile "bashrain/noderain-bash/template/supervisord.conf.template" "PATHINISUPERVISOR" "${noderainsupervisorpath}"
+sudo mv bashrain/noderain-bash/template/supervisord.conf.template /etc/supervisord.conf
+sudo mv bashrain/noderain-bash/ /bin/noderain-bash
+sudo chmod 775 /bin/noderain-bash/noderain.sh
 sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
-sudo mv bashrain/template/supervisord.conf.template /etc/supervisord.conf
-replaceInFile "/etc/supervisord.conf" "PATHINISUPERVISOR" "${noderainsupervisorpath}"
 echo '[###### Done ######]'
 sleep 1
 

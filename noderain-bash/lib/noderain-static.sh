@@ -1,5 +1,5 @@
-. "lib/utility/replaceInFile.sh"
-. "lib/utility/needRootUser.sh"
+. ${bashroot}/lib/utility/replaceInFile.sh
+. ${bashroot}/lib/utility/needRootUser.sh
 
 #
 # Function for create a simple HTML static website

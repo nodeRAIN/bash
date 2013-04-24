@@ -1,4 +1,4 @@
-. "lib/utility/needRootUser.sh"
+. ${bashroot}/lib/utility/needRootUser.sh
 
 #
 # Remove App and clear All file

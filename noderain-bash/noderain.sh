@@ -1,17 +1,19 @@
 #!/bin/bash
-. lib/config-server.sh
+bashroot="/bin/noderain-bash/"
+
+. ${bashroot}/lib/config-server.sh
 
 case "${1}" in
-  create) source lib/noderain-create.sh
+  create) source ${bashroot}/lib/noderain-create.sh
           createApp
           ;;
-  static) source lib/noderain-static.sh
+  static) source ${bashroot}/lib/noderain-static.sh
           createStatic
           ;; 
-  destroy) source lib/noderain-destroy.sh
+  destroy) source ${bashroot}/lib/noderain-destroy.sh
            destroyApp
            ;;
-  offline) source lib/noderain-offline.sh
+  offline) source ${bashroot}/lib/noderain-offline.sh
            offlineApp
            ;;
   *) echo 'Invalid option!'

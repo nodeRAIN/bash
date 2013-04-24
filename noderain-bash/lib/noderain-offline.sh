@@ -1,5 +1,5 @@
-. "lib/utility/needRootUser.sh"
-. "lib/utility/showAppOnline.sh"
+. ${bashroot}/lib/utility/needRootUser.sh
+. ${bashroot}/lib/utility/showAppOnline.sh
 
 #
 # Remove App and clear All file
