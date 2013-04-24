@@ -74,17 +74,18 @@ echo '[###### Done ######]'
 
 echo '[###### Create directory ######]'
 sleep 1
-echo -e 'Node application path [/home/noderain-server]: '
+echo -e 'Insert node application path [if blank: /home/noderain-server]: '
 read noderainserverpath
+#TODO: REMOVE WITHE SPACE FROM INPUT
 if [ "${noderainserverpath}" == "" ]; then
   noderainserverpath="/home/noderain-server"
 fi;
-echo -e 'Repository path [/home/noderain-repo]: '
+echo -e 'Insert repository path [if blank: /home/noderain-repo]: '
 read noderainrepopath
 if [ "${noderainrepopath}" == "" ]; then
   noderainrepopath="/home/noderain-repo"
 fi;
-echo -e 'Supervisor conf path [/home/noderain-supervisor]: '
+echo -e 'Insert supervisor conf path [if blank: /home/noderain-supervisor]: '
 read noderainsupervisorpath
 if [ "${noderainsupervisorpath}" == "" ]; then
   noderainsupervisorpath="/home/noderain-supervisor"
@@ -123,7 +124,7 @@ sleep 1
 
 rm -rf /home/tmp/*
 
-cd /home
+cd /home/
 
 echo 'nodeRAIN is ready to go...have a fun!'
 
