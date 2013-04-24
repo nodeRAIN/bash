@@ -89,6 +89,7 @@ sleep 1
 
 echo '[###### Install nodeRAIN bash######]'
 sleep 1
+. bashrain/lib/utility/replaceInFile.sh
 sudo git clone https://github.com/nodeRAIN/bash.git ./bashrain
 replaceInFile "bashrain/lib/config-server.sh" "PATHNODESERVER" "${noderainserver-path}"
 replaceInFile "bashrain/lib/config-server.sh" "PATHNODEREPO" "${noderainrepo-path}"
