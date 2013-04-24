@@ -39,6 +39,6 @@ To setup the server
   
   `/home/tmp/bash-master/noderain-setup.sh`
 
-4. Wait a few minutes!
+4. wait a few minutes!
 
 Script work on Ubuntu 12.10 X64 Server
