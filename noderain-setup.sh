@@ -2,8 +2,8 @@
 clear
 echo '[Wellcome to nodeRAIN server!]'
 
-#Create nodeRAIN user and his home directory 
-#sudo useradd -d /home/noderain -g adm -m -s shell -u userid accountname
+#Create nodeRAIN user and his home directory
+#sudo useradd -d /home/noderain -m -s /bin/bash shell noderain-admin admin
 #echo '[Insert nodeRAIN administrator password:]'
 #sudo passwd noderain
 
@@ -11,12 +11,9 @@ echo '[Wellcome to nodeRAIN server!]'
 
 #TODO: CHECK FOR SERVER SERCURITY
 
-#Set permission for nodeRAIN user as sudoer
-#sudo usermod -a -G sudo noderain
-
 #Login with noderain user
 #echo '[Login with new user]'
-#su noderain
+#su noderain-admin
 
 #Start install prerequisite
 echo '[Update server]'
@@ -34,9 +31,9 @@ echo '[Utility tool Done!]'
 echo '[Install nodejs v0.10.3]'
 sudo mkdir /home/tmp
 cd /home/tmp
-wget http://nodejs.org/dist/v0.10.3/node-v0.10.3.tar.gz
-tar xzf node-v0.10.3.tar.gz
-cd node-v0.10.3
+wget http://nodejs.org/dist/v0.10.4/node-v0.10.4.tar.gz
+tar xzf node-v0.10.4.tar.gz
+cd node-v0.10.4
 ./configure --prefix=/usr
 make
 sudo make install
@@ -62,15 +59,14 @@ sudo mv supervisord /etc/init.d/supervisord
 sudo rcconf
 sudo echo_supervisord_conf > supervisord.conf
 sudo mv supervisord.conf /etc/supervisord.conf
-
 #TODO: COPY DEAFULT SUPERVISORD CONF
-echo '[superviso Done!]'
+echo '[Supervisor Done!]'
 
 #TODO: Install node version manager!
 
 #TODO: Install e configure MongoDB as database if needed
 
-#TODO: get taht param from a config file
+#TODO: get that param from a config file
 echo '[Create directory]'
 mkdir /home/noderain-server
 mkdir /home/noderain-repo
