@@ -1,4 +1,8 @@
-# nodeRAIN
+# nodeRAIN v0.2.0
+
+## New
+* Improved security server (create noderain user for admin server)
+* Node application default installed
 
 ## Create a nodeJS server has become simple!
 
