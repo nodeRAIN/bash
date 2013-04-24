@@ -3,20 +3,21 @@ clear
 echo '[Wellcome to nodeRAIN server!]'
 
 #Create nodeRAIN user and his home directory 
-#sudo useradd -d /home/noderain -g adm -m -s shell -u userid accountname
+#mkdir /bin/noderain-bash
+#sudo useradd -d /home/noderain -g adm -m noderain-adm
 #echo '[Insert nodeRAIN administrator password:]'
-#sudo passwd noderain
+#sudo passwd noderain-adm
 
 #TODO: Create admin user who access to git repository
 
 #TODO: CHECK FOR SERVER SERCURITY
 
 #Set permission for nodeRAIN user as sudoer
-#sudo usermod -a -G sudo noderain
+#sudo usermod -a -G sudo noderain-adm
 
 #Login with noderain user
 #echo '[Login with new user]'
-#su noderain
+#su noderain-adm
 
 #Start install prerequisite
 echo '[###### Update server ######]'
