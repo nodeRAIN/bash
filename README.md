@@ -19,9 +19,13 @@
 
 To setup the server
 
-1. clone the repository
-
-  `git clone https://github.com/nodeRAIN/bash.git`
+1. get bash setup
+  `mkdir /home/tmp`
+  `cd /home/tmp`
+  `wget https://github.com/nodeRAIN/bash/archive/master.zip .`
+  `unzip master.zip`
+  `chmod 775 /home/tmp/bash-master/noderain-setup.sh`
+  `/home/tmp/bash-master/noderain-setup.sh`
 
 2. login as root
 
