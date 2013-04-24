@@ -19,16 +19,26 @@
 
 To setup the server
 
-1. clone the repository
+1. get bash setup
+  
+  `mkdir /home/tmp`
+  
+  `cd /home/tmp`
+  
+  `wget https://github.com/nodeRAIN/bash/archive/master.zip .`
 
-  `git clone https://github.com/nodeRAIN/bash.git`
+  `unzip master.zip`
+
+  `chmod 775 /home/tmp/bash-master/noderain-setup.sh`
 
 2. login as root
 
   `su root`
 
 3. launch the script and follow the instructions
+  
+  `/home/tmp/bash-master/noderain-setup.sh`
 
-  `./noderain-setup.sh`
+4. wait a few minutes!
 
 Script work on Ubuntu 12.10 X64 Server
