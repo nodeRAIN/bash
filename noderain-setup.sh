@@ -50,11 +50,11 @@ sudo make install
 echo '[NPM Done!]'
 
 echo '[Install NGINX]'
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 echo '[NGINX Done!]'
 
 echo '[Install supervisor]'
-sudo apt-get install python-setuptools
+sudo apt-get -y install python-setuptools
 sudo easy_install supervisor
 curl https://raw.github.com/gist/176149/88d0d68c4af22a7474ad1d011659ea2d27e35b8d/supervisord.sh > supervisord
 chmod +x supervisord
@@ -88,5 +88,7 @@ rm -rf /home/tmp/*
 #echo '[WebAdmin nodeRAIN Done!]'
 
 #echo '[Your Nodejs server is ready to go!]'
+
+cd /home
 
 exit
