@@ -36,8 +36,6 @@ To setup the server
   `su root`
 
 3. launch the script and follow the instructions
-
-  `./noderain-setup.sh`
   
   `/home/tmp/bash-master/noderain-setup.sh`
 
