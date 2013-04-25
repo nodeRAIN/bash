@@ -8,8 +8,7 @@ function replaceInFile() {
     exit 1;
   fi;
   if [ -e ${1} ]; then
-    sed -e "s#${2}#${3}#g" ${1} > tmp
-    mv tmp ${1}
+    sed -e "s#${2}#${3}#g" ${1} > ${1}
   else
     echo -e "Errore in replaceInFile: file non trovato. Impossibile aprire il file ${1}.";
     exit 1;
