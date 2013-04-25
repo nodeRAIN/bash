@@ -1,5 +1,5 @@
 #!/bin/bash
-bashroot="/bin/noderain-bash/"
+bashroot="/bin/noderain-bash"
 
 . ${bashroot}/lib/config-server.sh
 
