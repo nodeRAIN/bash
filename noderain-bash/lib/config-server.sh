@@ -1,11 +1,11 @@
-# path git repository
-repoDir="/home/repo-deployer"
-
 # path nodejs root script
-nodeDir="/home/node-server"
+nodeDir="PATHNODESERVER"
+
+# path git repository
+repoDir="PATHNODEREPO"
 
 # path supervisor file configuration
-supervisorDir="/home/supervisor-conf"
+supervisorDir="PATHNODESUPERVISOR"
 
 # path site file conf for nginx
 nginxDirAvailable="/etc/nginx/sites-available"

@@ -22,7 +22,7 @@ function createApp () {
   nginxFileAvailable=${nginxDirAvailable}/${host}
   nginxFileEnabled=${nginxDirEnabled}/${host}
   
-  binDir="bin/${host}"
+  binDir="${bashroot}/bin/${host}"
   mkdir $binDir
   tmpSiteAvailableFile="${binDir}/sites"
   tmpRepoDeployDir="${binDir}/repo"
@@ -30,22 +30,22 @@ function createApp () {
   tmpSupervisorFile="${binDir}/supervisor"
 
   echo 'Nginx host config creation...'
-  cp template/node.template ${tmpSiteAvailableFile}
+  cp ${bashroot}/template/node.template ${tmpSiteAvailableFile}
   replaceInFile "${tmpSiteAvailableFile}" "HOST" "${host}"
   replaceInFile "${tmpSiteAvailableFile}" "PORTNODE" "${nodeport}"
 
   mkdir ${tmpRepoDeployDir}
   git init --bare ./${tmpRepoDeployDir}
-  cp template/post-recive.template ${tmpRepoDeployDir}/hooks/post-receive
+  cp ${bashroot}/template/post-recive.template ${tmpRepoDeployDir}/hooks/post-receive
   chmod 777 ${tmpRepoDeployDir}/hooks/post-receive
   replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${nodeAppDir}"
   replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "HOST" "${host}"
 
   echo 'Create node...'
-  cp template/server-nodejs.template ${tmpServerFile}
+  cp ${bashroot}/template/server-nodejs.template ${tmpServerFile}
 
   echo 'Config supervisor...'
-  cp template/supervisor.template ${tmpSupervisorFile}
+  cp ${bashroot}/template/supervisor.template ${tmpSupervisorFile}
   replaceInFile "${tmpSupervisorFile}" "PATHNODE" "${nodeAppDir}"
   replaceInFile "${tmpSupervisorFile}" "HOST" "${host}"
   replaceInFile "${tmpSupervisorFile}" "PORTNODE" "${nodeport}"
