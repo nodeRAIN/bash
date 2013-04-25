@@ -1,8 +1,13 @@
 # nodeRAIN v0.2.0
 
 ## New
-* Improved security server (create noderain user for admin server)
+* Improved security server
+* Create unix group-repository with grant for deploy with git
+* Create unix group-administrator with limit grant for manage server
 * Node application default installed
+* Install mongoDB if needed
+* Install redis if needed
+* Support for server without apt-get
 
 ## Create a nodeJS server has become simple!
 
