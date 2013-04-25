@@ -1,4 +1,4 @@
-# nodeRAIN v0.2.0
+# nodeRAIN
 
 ## Create a nodeJS server has become simple!
 
