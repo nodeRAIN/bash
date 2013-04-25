@@ -3,22 +3,6 @@ clear
 echo '[Wellcome to nodeRAIN server]'
 echo '(setup can take more 5 minutes)'
 
-#Create nodeRAIN user and his home directory 
-#sudo useradd -d /home/noderain -g adm -m noderain-adm
-#echo '[Insert nodeRAIN administrator password:]'
-#sudo passwd noderain-adm
-
-#TODO: Create admin user who access to git repository
-
-#TODO: CHECK FOR SERVER SERCURITY
-
-#Set permission for nodeRAIN user as sudoer
-#sudo usermod -a -G sudo noderain-adm
-
-#Login with noderain user
-#echo '[Login with new user]'
-#su noderain-adm
-
 #Start install prerequisite
 echo '[###### Update server ######]'
 sleep 1
@@ -77,7 +61,6 @@ echo '[###### Create directory ######]'
 sleep 1
 echo -e 'Insert node application path [if blank: /home/noderain-server]: '
 read noderainserverpath
-#TODO: REMOVE WITHE SPACE FROM INPUT
 if [ "${noderainserverpath}" == "" ]; then
   noderainserverpath="/home/noderain-server"
 fi;
@@ -112,16 +95,6 @@ sudo chmod 775 /bin/noderain-bash/noderain.sh
 sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
 echo '[###### Done ######]'
 sleep 1
-
-#TODO: Install node version manager!
-
-#TODO: Install e configure MongoDB as database if needed
-
-#TODO: WEBADMIN noderain
-#echo '[Create WebAdmin nodeRAIN]'
-
-#echo '[WebAdmin nodeRAIN Done!]'
-
 
 rm -rf /home/tmp/*
 
