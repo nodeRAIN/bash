@@ -7,6 +7,7 @@
 * Node application default installed
 * Install mongoDB if needed
 * Install redis if needed
+* Support for server without apt-get
 
 ## Create a nodeJS server has become simple!
 
