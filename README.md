@@ -21,15 +21,17 @@ To setup the server
 
 1. get bash setup
   
-  `mkdir /home/tmp`
+  `sudo mkdir /home/tmp`
   
   `cd /home/tmp`
   
-  `wget https://github.com/nodeRAIN/bash/archive/master.zip .`
+  `sudo wget https://github.com/nodeRAIN/bash/archive/master.zip .`
+  
+  `sudo apt-get install unzip` 
+  
+  `sudo unzip master.zip`
 
-  `unzip master.zip`
-
-  `chmod 775 /home/tmp/bash-master/noderain-setup.sh`
+  `sudo chmod 775 /home/tmp/bash-master/noderain-setup.sh`
 
 2. login as root
 
