@@ -75,9 +75,9 @@ if [ "${noderainsupervisorpath}" == "" ]; then
   noderainsupervisorpath="/home/noderain-supervisor"
 fi;
 
-mkdir $noderainserverpath
-mkdir $noderainrepopath
-mkdir $noderainsupervisorpath
+sudo mkdir $noderainserverpath
+sudo mkdir $noderainrepopath
+sudo mkdir $noderainsupervisorpath
 echo '[###### Done ######]'
 sleep 1
 
@@ -96,7 +96,7 @@ sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
 echo '[###### Done ######]'
 sleep 1
 
-rm -rf /home/tmp/*
+sudo rm -rf /home/tmp/*
 
 cd /home/
 
