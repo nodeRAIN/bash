@@ -22,7 +22,7 @@ function createApp () {
   nginxFileAvailable=${nginxDirAvailable}/${host}
   nginxFileEnabled=${nginxDirEnabled}/${host}
   
-  binDir="${bashroot}/bin/${host}"
+  binDir="${bashroot}/tmp/${host}"
   mkdir $binDir
   tmpSiteAvailableFile="${binDir}/sites"
   tmpRepoDeployDir="${binDir}/repo"
