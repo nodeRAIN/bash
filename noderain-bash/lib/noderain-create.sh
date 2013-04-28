@@ -11,7 +11,7 @@ function createApp () {
   echo -e 'App name:\n (app name is same of host name ex: noderain.it'
   read host
 
-  #TODO: Check port availablde port
+  #TODO: Check available port
   echo -e 'Node port: '
   read nodeport
 
@@ -62,7 +62,7 @@ function createApp () {
   supervisorctl reload
   ln -s ${nginxFileAvailable} ${nginxFileEnabled}
   sudo /etc/init.d/nginx restart
-  # /etc/init.d/supervisord restart -c ${supervisorconf}
+  supervisord restart -c ${supervisorconf}
 
   rm -r ${binDir}
   echo 'Done! http://'${host}
