@@ -51,7 +51,7 @@ sleep 1
 sudo apt-get -y install python-setuptools
 sudo easy_install supervisor
 sudo curl https://raw.github.com/gist/176149/88d0d68c4af22a7474ad1d011659ea2d27e35b8d/supervisord.sh > supervisord
-sudo chmod +x supervisord
+sudo chmod 775 supervisord
 sudo mv supervisord /etc/init.d/supervisord
 sudo rcconf
 sleep 1
@@ -93,6 +93,12 @@ sudo mv /home/tmp/bashrain/noderain-bash/template/supervisord.conf.template /etc
 sudo mv /home/tmp/bashrain/noderain-bash/ /bin/noderain-bash
 sudo chmod 775 /bin/noderain-bash/noderain.sh
 sudo ln -s  /bin/noderain-bash/noderain.sh /usr/bin/noderain
+echo '[###### Done ######]'
+sleep 1
+
+echo '[###### Start supervisord ######]'
+sleep 1
+sudo supervisord -c /etc/supervisord.conf
 echo '[###### Done ######]'
 sleep 1
 
