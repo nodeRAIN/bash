@@ -7,7 +7,6 @@
 * Supervisor as nodejs proc runner
 * Git for deploy
 * and finally bash command to easy manage server!
-(on Ubuntu 12.10 X64 Server)
 
 (thanks to http://cuppster.com/2011/05/12/diy-node-js-server-on-amazon-ec2/ who inspire me)
 
@@ -43,4 +42,21 @@ To setup the server
 
 4. wait a few minutes!
 
-Script work on Ubuntu 12.10 X64 Server
+Script tested on Ubuntu 12.10 X64 Server
+
+## Create your first nodejs app with noderain bash
+
+1. create new app with bash
+   
+   `noderain create`
+
+2. add remote link on your git repository to the server
+  
+   `git remote add deploy ssh://your.static.ip/home/noderain-repo/name.app
+
+3. push your code!
+  
+   git push deploy
+
+`
+
