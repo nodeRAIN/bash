@@ -62,7 +62,7 @@ function createApp () {
   supervisorctl reload
   ln -s ${nginxFileAvailable} ${nginxFileEnabled}
   sudo /etc/init.d/nginx restart
-  supervisord restart -c ${supervisorconf}
+  /etc/init.d/supervisord restart
 
   rm -r ${binDir}
   echo 'Done! http://'${host}
