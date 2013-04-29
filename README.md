@@ -52,11 +52,8 @@ Script tested on Ubuntu 12.10 X64 Server
 
 2. add remote link on your git repository to the server
   
-   `git remote add deploy ssh://your.static.ip/home/noderain-repo/name.app
+   `git remote add deploy ssh://your.static.ip/home/noderain-repo/name.app`
 
 3. push your code!
   
-   git push deploy
-
-`
-
+   `git push deploy`
