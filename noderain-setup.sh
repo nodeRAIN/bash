@@ -104,7 +104,7 @@ sleep 1
 
 sudo rm -rf /home/tmp/*
 
-cd /home/
+cd /home
 
 echo 'nodeRAIN is ready to go...have a fun!'
 
