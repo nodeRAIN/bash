@@ -1,8 +1,8 @@
 ; Sample supervisor config file.
-;
-; For more information on the config file, please see:
 ; http://supervisord.org/configuration.html
-;
+
+[unix_http_server]
+file=/tmp/supervisor.sock   ; (the path to the socket file)
 
 [supervisord]
 logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
@@ -30,11 +30,6 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
 serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
-;serverurl=http://127.0.0.1:9001 ; use an http:// url to specify an inet socket
-;username=chris              ; should be same as http_username if set
-;password=123                ; should be same as http_password if set
-;prompt=mysupervisor         ; cmd line prompt (default "supervisor")
-;history_file=~/.sc_history  ; use readline history if available
 
 [include]
 files=PATHINISUPERVISOR/*.ini

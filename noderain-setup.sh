@@ -98,7 +98,7 @@ sleep 1
 
 echo '[###### Start supervisord ######]'
 sleep 1
-sudo /etc/init.d/supervisord
+sudo supervisord -c /etc/supervisord.conf
 echo '[###### Done ######]'
 sleep 1
 
