@@ -66,6 +66,6 @@ function createApp () {
 
   rm -r ${binDir}
   echo 'For deploy add remote link to your git repository:'
-  echo 'git remote add deploy ssh://root/[ipaddress]'${repoAppDir}
+  echo 'git remote add deploy ssh://root@[ipaddress]'${repoAppDir}
   echo 'Done! http://'${host}
 }
