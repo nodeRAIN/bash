@@ -42,8 +42,6 @@ To setup the server
 
 4. wait a few minutes!
 
-Script tested on Ubuntu 12.10 X64 Server
-
 ## Create your first nodejs app with noderain bash
 
 1. create new app with bash
@@ -57,3 +55,7 @@ Script tested on Ubuntu 12.10 X64 Server
 3. push your code!
   
    `git push deploy`
+
+## Script is ready for:
+
+Ubuntu 12.10 X64 Server
