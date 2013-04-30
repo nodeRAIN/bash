@@ -48,7 +48,7 @@ To setup the server
 
 2. add remote link on your git repository to the server
   
-   `git remote add deploy ssh://your.static.ip/home/noderain-repo/name.app`
+   `git remote add deploy ssh://user@your.static.ip/home/noderain-repo/name.app`
 
 3. push your code!
   
