@@ -29,7 +29,7 @@ function createStatic () {
   replaceInFile "${tmpSiteAvailableFile}" "PATHNODE" "${nodeAppDir}"
  
   mkdir ${tmpRepoDeployDir}
-  git init --bare ./${tmpRepoDeployDir}
+  git init --bare ${tmpRepoDeployDir}
   cp ${bashroot}/template/post-recive.template ${tmpRepoDeployDir}/hooks/post-receive
   chmod 777 ${tmpRepoDeployDir}/hooks/post-receive
   replaceInFile "${tmpRepoDeployDir}/hooks/post-receive" "PATHNODE" "${nodeAppDir}"
@@ -54,6 +54,6 @@ function createStatic () {
 
   rm -r ${binDir}
   echo 'For deploy add remote link to your git repository:'
-  echo 'git remote add deploy ssh://root/[ipaddress]'${repoAppDir}
+  echo 'git remote add deploy ssh://root@[ipaddress]'${repoAppDir}
   echo 'Done! http://'${host}
 }
