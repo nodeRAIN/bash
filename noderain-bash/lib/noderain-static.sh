@@ -53,5 +53,7 @@ function createStatic () {
   sudo /etc/init.d/nginx restart
 
   rm -r ${binDir}
+  echo 'For deploy add remote link to your git repository:'
+  echo 'git remote add deploy ssh://root/[ipaddress]'${repoAppDir}
   echo 'Done! http://'${host}
 }
