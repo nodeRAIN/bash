@@ -54,6 +54,7 @@ To setup the server
   
    `git push deploy`
 
-## Script is ready for:
+## Script is ready for
 
 Ubuntu 12.10 X64 Server
+Debian 6 32bit (thanks to Emanuele Tido pt.linkedin.com/pub/emanuele-tido/23/1b3/b77/)
