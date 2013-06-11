@@ -4,6 +4,9 @@ nodeDir="PATHNODESERVER"
 # path git repository
 repoDir="PATHNODEREPO"
 
+# path service script
+serviceDir="serivce"
+
 # path supervisor file configuration
 supervisorDir="PATHNODESUPERVISOR"
 supervisorConf="/etc/supervisord.conf"
