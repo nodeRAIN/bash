@@ -16,6 +16,9 @@ case "${1}" in
   offline) source ${bashroot}/lib/noderain-offline.sh
            offlineApp
            ;;
+  serviceup) source ${bashroot}/lib/noderain-serviceup.sh
+             serviceUp
+             ;;
   *) echo 'Invalid option!'
 esac
 
